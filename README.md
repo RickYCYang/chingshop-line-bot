@@ -2,5 +2,4 @@
 
 ### start ngrok
 
-command
 `ngrok http 8000`
