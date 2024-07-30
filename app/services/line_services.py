@@ -1,6 +1,5 @@
 # import requests
 import asyncio
-from loguru import logger
 from fastapi import Request, HTTPException
 
 from linebot.v3.messaging import UserProfileResponse
@@ -14,7 +13,7 @@ from app.settings import LINE_CHANNEL_ACCESS_TOKEN, parser, line_bot_api
 
 from app.utils.datetime import timestamp_to_datetime
 from app.utils.line import manager_ids, product_keywords
-
+from app.logger import logger
 
 headers = {
     "Content-Type": "application/json; charset=UTF-8",
@@ -37,10 +36,9 @@ async def parse_line_events(request: Request):
 
     # get request body as text
     body = await request.body()
-    body = body.decode()
 
     try:
-        events = parser.parse(body, signature)
+        events = parser.parse(body.decode(), signature)
     except InvalidSignatureError:
         raise HTTPException(status_code=400, detail="Invalid signature")
 

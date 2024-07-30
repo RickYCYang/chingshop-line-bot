@@ -2,7 +2,7 @@ import gspread
 from gspread import Worksheet
 from gspread.exceptions import WorksheetNotFound
 from oauth2client.service_account import ServiceAccountCredentials
-from loguru import logger
+from app.logger import logger
 
 from app.settings import GOOGLE_SHEET
 

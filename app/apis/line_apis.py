@@ -16,9 +16,6 @@ async def handle_callback(request: Request):
     return "OK"
 
 
-# @router.post("/test", tags=["Line"])
-# async def test(request: Request):
-#     from app.services.google_sheet_services import google_sheet
-
-#     data = google_sheet._GoogleSheet__get_all_records("test")
-#     return data
+@router.post("/check", tags=["Headthy Check"])
+async def check(request: Request):
+    return {"message": "hello world"}

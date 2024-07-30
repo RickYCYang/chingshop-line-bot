@@ -1,5 +1,4 @@
-from fastapi import Request, FastAPI, HTTPException
-from loguru import logger
+from fastapi import FastAPI
 
 from app.apis.routers import router
 
